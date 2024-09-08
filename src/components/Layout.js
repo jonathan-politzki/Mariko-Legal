@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
     <div className="min-h-screen bg-primary text-light">
       <nav className="bg-secondary p-4">
         <div className="container mx-auto flex justify-between items-center">
-          <Link to="/" className="text-2xl font-bold">LegalEase AI</Link>
+          <Link to="/" className="text-2xl font-bold">Mariko AI</Link>
           <div className="space-x-4">
             <Link to="/" className="hover:text-accent">Home</Link>
             <Link to="/demo" className="hover:text-accent">Demo</Link>

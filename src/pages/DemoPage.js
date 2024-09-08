@@ -8,15 +8,20 @@ const DemoPage = () => {
 
   const handleSendMessage = (message) => {
     setMessages([...messages, { text: message, sender: 'user' }]);
-    // Simulate a response from the opposing counsel
     setTimeout(() => {
-      setMessages(prevMessages => [...prevMessages, { text: "This is a simulated response from the opposing counsel.", sender: 'bot' }]);
+      setMessages(prevMessages => [...prevMessages, { 
+        text: "Thank you for your message. I understand your position and would like to propose a mutually beneficial solution.", 
+        sender: 'bot' 
+      }]);
     }, 1000);
   };
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-8 text-center">Legal Communication Demo</h1>
+    <div className="max-w-4xl mx-auto px-4">
+      <h1 className="text-4xl font-bold mb-6 text-center text-light">Mariko AI Demo</h1>
+      <p className="text-xl mb-8 text-center text-light">
+        Experience how Mariko AI helps maintain cordial communication in legal mediation.
+      </p>
       <div className="bg-secondary rounded-lg shadow-lg p-6">
         <ChatInterface messages={messages} />
         <ToneFilter

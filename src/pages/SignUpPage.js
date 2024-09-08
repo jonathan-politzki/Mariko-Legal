@@ -6,37 +6,36 @@ const SignUpPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically handle the sign-up logic
     console.log('Sign up submitted with:', email, password);
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
-      <h1 className="text-2xl font-bold mb-4">Sign Up for LegalEase AI</h1>
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md">
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-700 mb-2">Email</label>
+    <div className="min-h-screen flex flex-col items-center justify-center px-4">
+      <h1 className="text-4xl font-bold mb-8 text-light">Join Mariko AI</h1>
+      <form onSubmit={handleSubmit} className="bg-secondary p-8 rounded-lg shadow-md w-full max-w-md">
+        <div className="mb-6">
+          <label htmlFor="email" className="block text-light mb-2 text-lg">Email</label>
           <input
             type="email"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md"
+            className="w-full px-4 py-2 bg-primary border border-accent rounded-md text-light"
             required
           />
         </div>
-        <div className="mb-4">
-          <label htmlFor="password" className="block text-gray-700 mb-2">Password</label>
+        <div className="mb-6">
+          <label htmlFor="password" className="block text-light mb-2 text-lg">Password</label>
           <input
             type="password"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md"
+            className="w-full px-4 py-2 bg-primary border border-accent rounded-md text-light"
             required
           />
         </div>
-        <button type="submit" className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors">
+        <button type="submit" className="w-full bg-accent text-white py-3 px-4 rounded-md hover:bg-opacity-90 transition-colors text-lg">
           Sign Up
         </button>
       </form>

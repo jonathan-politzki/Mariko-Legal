@@ -11,9 +11,6 @@ module.exports = {
           'accent': '#2C74B3',
           'light': '#E5E5E5',
         },
-        fontFamily: {
-          'sans': ['Roboto', 'Arial', 'sans-serif'],
-        },
       },
     },
     plugins: [],
