@@ -1,26 +1,17 @@
 import React, { useState } from 'react';
-import { detectTone } from '../utils/toneDetection';
 
 const ToneFilter = ({ inputValue, setInputValue, onSendMessage }) => {
-  const [showWarning, setShowWarning] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (detectTone(inputValue)) {
-      setShowWarning(true);
-    } else {
-      sendMessage();
-    }
+    setShowPopup(true);
   };
 
-  const sendMessage = () => {
+  const handleSendAnyway = () => {
     onSendMessage(inputValue);
     setInputValue('');
-    setShowWarning(false);
-  };
-
-  const handleIgnoreWarning = () => {
-    sendMessage();
+    setShowPopup(false);
   };
 
   return (
@@ -35,16 +26,16 @@ const ToneFilter = ({ inputValue, setInputValue, onSendMessage }) => {
       <button type="submit" className="bg-accent text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-colors">
         Send Message
       </button>
-      {showWarning && (
+      {showPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-secondary p-6 rounded-lg max-w-md">
-            <p className="mb-4 text-light">Warning: Your message may contain an aggressive tone. Are you sure you want to send it?</p>
+            <p className="mb-4 text-light">This is a test pop-up. Do you want to send this message?</p>
             <div className="flex justify-end space-x-4">
-              <button onClick={() => setShowWarning(false)} className="bg-primary text-light px-4 py-2 rounded-lg">
-                Edit Message
+              <button onClick={() => setShowPopup(false)} className="bg-primary text-light px-4 py-2 rounded-lg">
+                Cancel
               </button>
-              <button onClick={handleIgnoreWarning} className="bg-accent text-white px-4 py-2 rounded-lg">
-                Send Anyway
+              <button onClick={handleSendAnyway} className="bg-accent text-white px-4 py-2 rounded-lg">
+                Send Message
               </button>
             </div>
           </div>

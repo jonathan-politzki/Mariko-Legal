@@ -10,7 +10,7 @@ const DemoPage = () => {
     setMessages([...messages, { text: message, sender: 'user' }]);
     setTimeout(() => {
       setMessages(prevMessages => [...prevMessages, { 
-        text: "Thank you for your message. I understand your position and would like to propose a mutually beneficial solution.", 
+        text: "Thank you for your message. This is a simulated response.", 
         sender: 'bot' 
       }]);
     }, 1000);
