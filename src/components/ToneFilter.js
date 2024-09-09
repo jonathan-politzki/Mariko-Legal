@@ -33,7 +33,7 @@ const ToneFilter = ({ inputValue, setInputValue, onSendMessage }) => {
       {showPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-secondary p-6 rounded-lg max-w-md">
-            <p className="mb-4 text-light">Your message is over 10 characters long. Do you want to send it?</p>
+            <p className="mb-4 text-light">Are you sure you want to send this message? It contains escalatory language.</p>
             <div className="flex justify-end space-x-4">
               <button onClick={() => setShowPopup(false)} className="bg-primary text-light px-4 py-2 rounded-lg">
                 Edit Message
