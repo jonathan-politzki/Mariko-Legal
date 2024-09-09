@@ -9,15 +9,18 @@ const ToneFilter = ({ inputValue, setInputValue, onSendMessage }) => {
     if (detectTone(inputValue)) {
       setShowWarning(true);
     } else {
-      onSendMessage(inputValue);
-      setInputValue('');
+      sendMessage();
     }
   };
 
-  const handleIgnoreWarning = () => {
+  const sendMessage = () => {
     onSendMessage(inputValue);
     setInputValue('');
     setShowWarning(false);
+  };
+
+  const handleIgnoreWarning = () => {
+    sendMessage();
   };
 
   return (
@@ -25,7 +28,7 @@ const ToneFilter = ({ inputValue, setInputValue, onSendMessage }) => {
       <textarea
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
-        className="w-full p-3 border border-secondary rounded-lg mb-4 text-primary"
+        className="w-full p-3 border border-accent rounded-lg mb-4 bg-primary text-light"
         rows="3"
         placeholder="Type your message here..."
       />
@@ -33,11 +36,11 @@ const ToneFilter = ({ inputValue, setInputValue, onSendMessage }) => {
         Send Message
       </button>
       {showWarning && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-6 rounded-lg max-w-md">
-            <p className="mb-4 text-primary">Warning: Your message may contain an aggressive tone. Are you sure you want to send it?</p>
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-secondary p-6 rounded-lg max-w-md">
+            <p className="mb-4 text-light">Warning: Your message may contain an aggressive tone. Are you sure you want to send it?</p>
             <div className="flex justify-end space-x-4">
-              <button onClick={() => setShowWarning(false)} className="bg-secondary text-white px-4 py-2 rounded-lg">
+              <button onClick={() => setShowWarning(false)} className="bg-primary text-light px-4 py-2 rounded-lg">
                 Edit Message
               </button>
               <button onClick={handleIgnoreWarning} className="bg-accent text-white px-4 py-2 rounded-lg">
